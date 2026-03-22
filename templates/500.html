@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error del Servidor - SeguroAutoPY</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <section class="error-section">
+        <div class="container">
+            <div class="error-content">
+                <h1>500</h1>
+                <h2>¡Error del Servidor!</h2>
+                <p>Algo salió mal en nuestro servidor. Por favor, intenta más tarde.</p>
+                <p>Nuestro equipo técnico ha sido notificado.</p>
+                <a href="/" class="btn btn-primary">Volver al Inicio</a>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .error-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .error-content {
+            text-align: center;
+        }
+
+        .error-content h1 {
+            font-size: 120px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .error-content h2 {
+            font-size: 32px;
+            margin: 20px 0;
+        }
+
+        .error-content p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeguroAutoPY - Seguros Automotrices</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- NAVEGACIÓN -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🚗 SeguroAutoPY</div>
+            <ul class="nav-links">
+                <li><a href="/" class="active">Inicio</a></li>
+                <li><a href="#cotizar">Cotizar</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION (Encabezado Principal) -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Asegura tu vehículo con confianza</h1>
+                <p>Cotizaciones online al instante • Sin compromiso • 100% seguro</p>
+                <a href="#cotizar" class="btn btn-primary">Cotiza Ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN SOBRE NOSOTROS -->
+    <section class="about">
+        <div class="container">
+            <h2>¿Por qué elegir SeguroAutoPY?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Cotización Rápida</h3>
+                    <p>Obtén tu cotización en menos de 2 minutos sin complicaciones</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Precios Transparentes</h3>
+                    <p>No hay sorpresas. Ves exactamente qué pagas y por qué</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>100% Seguro</h3>
+                    <p>Encriptación de nivel bancario para proteger tus datos</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🆘</div>
+                    <h3>Soporte 24/7</h3>
+                    <p>Nuestro equipo está disponible cuando nos necesites</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN COTIZADOR -->
+    <section id="cotizar" class="cotizador">
+        <div class="container">
+            <h2>Cotiza tu Seguro Automotriz</h2>
+            <div class="cotizador-form">
+                <form id="formulario-cotizacion">
+                    <div class="form-group">
+                        <label for="marca">Marca del Vehículo *</label>
+                        <select id="marca" name="marca" required>
+                            <option value="">-- Selecciona una marca --</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Ford">Ford</option>
+                            <option value="Chevrolet">Chevrolet</option>
+                            <option value="Volkswagen">Volkswagen</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Audi">Audi</option>
+                            <option value="Mercedes">Mercedes</option>
+                            <option value="Hyundai">Hyundai</option>
+                            <option value="Nissan">Nissan</option>
+                            <option value="Otra">Otra marca</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="modelo">Modelo *</label>
+                        <input type="text" id="modelo" name="modelo" placeholder="Ej: Corolla, Civic, Fiesta" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="anio">Año del Vehículo *</label>
+                        <select id="anio" name="anio" required>
+                            <option value="">-- Selecciona un año --</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipo_seguro">Tipo de Seguro *</label>
+                        <select id="tipo_seguro" name="tipo_seguro" required>
+                            <option value="">-- Selecciona tipo de seguro --</option>
+                            <option value="basico">Básico - $1,500/mes (Responsabilidad Civil)</option>
+                            <option value="completo">Completo - $2,500/mes (Cobertura Total)</option>
+                            <option value="premium">Premium - $3,500/mes (Máxima Protección)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large">Cotizar Ahora</button>
+                </form>
+
+                <!-- Resultado de la cotización -->
+                <div id="resultado-cotizacion" class="resultado-oculto">
+                    <div class="resultado-box">
+                        <h3>Tu Cotización</h3>
+                        <div id="resultado-contenido"></div>
+                        <button type="button" class="btn btn-secondary" onclick="document.getElementById('resultado-cotizacion').classList.add('resultado-oculto')">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN CHATBOT -->
+    <section class="chatbot-section">
+        <div class="container">
+            <h2>¿Tienes Preguntas?</h2>
+            <p>Nuestro chatbot está aquí para ayudarte 24/7</p>
+            
+            <div class="chatbot-container">
+                <div id="chatbot-mensajes" class="chatbot-messages">
+                    <div class="mensaje-bot">
+                        <p>¡Hola! 👋 Soy tu asistente virtual. ¿Cómo puedo ayudarte?</p>
+                    </div>
+                </div>
+
+                <form id="chatbot-form" class="chatbot-input">
+                    <input 
+                        type="text" 
+                        id="chatbot-pregunta" 
+                        placeholder="Escribe tu pregunta..." 
+                        required
+                    >
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>SeguroAutoPY</h4>
+                    <p>Tu confianza es nuestra prioridad</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p>📞 0800-123-4567</p>
+                    <p>📧 info@seguroautopy.com</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <p>Facebook • Instagram • LinkedIn</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SeguroAutoPY. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

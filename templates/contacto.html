@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - SeguroAutoPY</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- NAVEGACIÓN -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🚗 SeguroAutoPY</div>
+            <ul class="nav-links">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/#cotizar">Cotizar</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a href="/contacto" class="active">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero hero-small">
+        <div class="container">
+            <h1>Contáctanos</h1>
+            <p>Estamos aquí para ayudarte</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN CONTACTO -->
+    <section class="contacto-section">
+        <div class="container">
+            <div class="contacto-grid">
+                <!-- Formulario -->
+                <div class="contacto-form">
+                    <h2>Envíanos un Mensaje</h2>
+                    <form id="contacto-formulario">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo *</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="asunto">Asunto *</label>
+                            <select id="asunto" name="asunto" required>
+                                <option value="">-- Selecciona un asunto --</option>
+                                <option value="cotizacion">Consulta sobre Cotización</option>
+                                <option value="poliza">Información sobre Póliza</option>
+                                <option value="reclamo">Reclamo/Siniestro</option>
+                                <option value="pago">Consulta sobre Pago</option>
+                                <option value="cancelacion">Cancelación de Póliza</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">Enviar Mensaje</button>
+                    </form>
+                </div>
+
+                <!-- Información de contacto -->
+                <div class="contacto-info">
+                    <h2>Información de Contacto</h2>
+
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div class="info-content">
+                            <h3>Teléfono</h3>
+                            <p><strong>0800-123-4567</strong></p>
+                            <p>Disponible 24/7</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">📧</div>
+                        <div class="info-content">
+                            <h3>Email</h3>
+                            <p><strong>info@seguroautopy.com</strong></p>
+                            <p>Respondemos en 24 horas</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div class="info-content">
+                            <h3>Ubicación</h3>
+                            <p><strong>Calle Principal 123</strong></p>
+                            <p>Ciudad, País</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">⏰</div>
+                        <div class="info-content">
+                            <h3>Horario de Atención</h3>
+                            <p><strong>Lunes a Viernes:</strong> 9:00 - 18:00</p>
+                            <p><strong>Sábados:</strong> 9:00 - 13:00</p>
+                            <p><strong>Domingos:</strong> Emergencias solamente</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">💬</div>
+                        <div class="info-content">
+                            <h3>Chat en Vivo</h3>
+                            <p><strong>Disponible en nuestro sitio</strong></p>
+                            <p>Habla con un agente al instante</p>
+                        </div>
+                    </div>
+
+                    <!-- Redes sociales -->
+                    <div class="social-links">
+                        <h3>Síguenos</h3>
+                        <a href="#" class="social-btn">Facebook</a>
+                        <a href="#" class="social-btn">Instagram</a>
+                        <a href="#" class="social-btn">LinkedIn</a>
+                        <a href="#" class="social-btn">Twitter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPA (simulado) -->
+    <section class="mapa-section">
+        <div class="container">
+            <h2>Ubicación</h2>
+            <div class="mapa-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0168041832617!2d-58.38160952346095!3d-34.60368597099999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3976cbd1e1%3A0xa5f5d1da9e89aee8!2sAv.%20Corrientes%2C%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>SeguroAutoPY</h4>
+                    <p>Tu confianza es nuestra prioridad</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p>📞 0800-123-4567</p>
+                    <p>📧 info@seguroautopy.com</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <p>Facebook • Instagram • LinkedIn</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SeguroAutoPY. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Manejar envío de formulario de contacto
+        document.getElementById('contacto-formulario').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Nos pondremos en contacto pronto.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

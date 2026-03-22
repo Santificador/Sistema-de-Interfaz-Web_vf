@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas Frecuentes - SeguroAutoPY</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- NAVEGACIÓN -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🚗 SeguroAutoPY</div>
+            <ul class="nav-links">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/#cotizar">Cotizar</a></li>
+                <li><a href="/faq" class="active">FAQ</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero hero-small">
+        <div class="container">
+            <h1>Preguntas Frecuentes</h1>
+            <p>Encuentra respuestas a las preguntas más comunes</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Cuánto cuesta asegurar mi auto?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>El costo depende de varios factores: marca, modelo, año del vehículo y tipo de cobertura elegida.</p>
+                        <p>Nuestros precios base son:</p>
+                        <ul>
+                            <li>Seguro Básico: $1,500/mes</li>
+                            <li>Seguro Completo: $2,500/mes</li>
+                            <li>Seguro Premium: $3,500/mes</li>
+                        </ul>
+                        <p>Usa nuestro cotizador para obtener un precio exacto para tu vehículo.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Qué documentos necesito para cotizar?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Para cotizar online necesitas muy poco. Solo proporciona:</p>
+                        <ul>
+                            <li>Marca del vehículo</li>
+                            <li>Modelo</li>
+                            <li>Año de fabricación</li>
+                            <li>Tipo de seguro deseado</li>
+                        </ul>
+                        <p>Si decides contratar, luego debirás enviar documentos más completos.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Cuánto tarda obtener una cotización?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>¡Menos de 2 minutos!</strong></p>
+                        <p>Nuestro sistema es totalmente automático y calcula el precio al instante. Solo debes:</p>
+                        <ol>
+                            <li>Completar los datos del vehículo</li>
+                            <li>Seleccionar el tipo de seguro</li>
+                            <li>Hacer clic en "Cotizar"</li>
+                        </ol>
+                        <p>¡Obtendrás el resultado inmediatamente!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Cuáles son los métodos de pago?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Aceptamos varios métodos de pago:</p>
+                        <ul>
+                            <li>Tarjetas de crédito (VISA, MasterCard, Amex)</li>
+                            <li>Tarjetas de débito</li>
+                            <li>Transferencia bancaria</li>
+                            <li>Billetera virtual</li>
+                            <li>Efectivo en sucursales autorizadas</li>
+                        </ul>
+                        <p>Todas las transacciones son seguras con encriptación SSL.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Es obligatorio contratar después de cotizar?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>¡No!</strong> Absolutamente no.</p>
+                        <p>Nuestras cotizaciones son:</p>
+                        <ul>
+                            <li>Completamente gratis</li>
+                            <li>Sin compromiso de compra</li>
+                            <li>Sin dejar datos personales</li>
+                            <li>Válidas durante 30 días</li>
+                        </ul>
+                        <p>Puedes cotizar varias veces y comparar opciones sin restricción.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Qué sucede si tengo un accidente?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Si contratas seguro con nosotros y tienes un accidente:</p>
+                        <ol>
+                            <li>Llama inmediatamente a nuestro line 0800-123-4567</li>
+                            <li>Reporta el siniestro con detalles</li>
+                            <li>Envía documentación y fotos del daño</li>
+                            <li>Nuestro equipo evaluará y procesará el reclamo</li>
+                        </ol>
+                        <p><strong>Tiempo de respuesta:</strong> Máximo 48 horas hábiles</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Pueden cambiar mis datos después de cotizar?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Claro que sí. Puedes cambiar en cualquier momento:</p>
+                        <ul>
+                            <li>El tipo de cobertura</li>
+                            <li>El deducible</li>
+                            <li>Datos personales</li>
+                            <li>Datos del vehículo</li>
+                        </ul>
+                        <p>Cualquier cambio se reflejará en tu próxima facturación.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Cómo cancelo mi póliza?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>El proceso es muy simple:</p>
+                        <ol>
+                            <li>Contacta a nuestro equipo de atención</li>
+                            <li>Avísanos con 10 días de anticipación</li>
+                            <li>Te devolveremos el prorrateo oportuno</li>
+                        </ol>
+                        <p><strong>Contacto:</strong> 0800-123-4567 o info@seguroautopy.com</p>
+                        <p>Nota: Consulta el contrato por términos específicos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>¿Listo para asegurar tu vehículo?</h2>
+            <p>Obtén tu cotización gratis en menos de 2 minutos</p>
+            <a href="/#cotizar" class="btn btn-primary btn-large">Cotiza Ahora</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>SeguroAutoPY</h4>
+                    <p>Tu confianza es nuestra prioridad</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p>📞 0800-123-4567</p>
+                    <p>📧 info@seguroautopy.com</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <p>Facebook • Instagram • LinkedIn</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SeguroAutoPY. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script para FAQ colapsables -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const item = this.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
