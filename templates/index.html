@@ -1,25 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SeguroAutoPY - Seguros Automotrices</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-    <!-- NAVEGACIÓN -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">🚗 SeguroAutoPY</div>
-            <ul class="nav-links">
-                <li><a href="/" class="active">Inicio</a></li>
-                <li><a href="#cotizar">Cotizar</a></li>
-                <li><a href="/faq">FAQ</a></li>
-                <li><a href="/contacto">Contacto</a></li>
-            </ul>
-        </div>
-    </nav>
+{% extends "base.html" %}
 
+{% block title %}SeguroAutoPY - Seguros Automotrices{% endblock %}
+
+{% block content %}
     <!-- HERO SECTION (Encabezado Principal) -->
     <section class="hero">
         <div class="container">
@@ -27,6 +10,42 @@
                 <h1>Asegura tu vehículo con confianza</h1>
                 <p>Cotizaciones online al instante • Sin compromiso • 100% seguro</p>
                 <a href="#cotizar" class="btn btn-primary">Cotiza Ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PASO A PASO -->
+    <section class="paso-a-paso">
+        <div class="container">
+            <h2>¿Cómo Funciona?</h2>
+            <div class="pasos-grid">
+                <div class="paso">
+                    <div class="paso-numero">1</div>
+                    <div class="paso-icon">📝</div>
+                    <h3>Completa</h3>
+                    <p>Datos de tu vehículo</p>
+                </div>
+                <div class="paso-flecha">→</div>
+                <div class="paso">
+                    <div class="paso-numero">2</div>
+                    <div class="paso-icon">⚙️</div>
+                    <h3>Calcula</h3>
+                    <p>Tu cotización</p>
+                </div>
+                <div class="paso-flecha">→</div>
+                <div class="paso">
+                    <div class="paso-numero">3</div>
+                    <div class="paso-icon">📊</div>
+                    <h3>Compara</h3>
+                    <p>Diferentes opciones</p>
+                </div>
+                <div class="paso-flecha">→</div>
+                <div class="paso">
+                    <div class="paso-numero">4</div>
+                    <div class="paso-icon">✅</div>
+                    <h3>Contrata</h3>
+                    <p>En línea</p>
+                </div>
             </div>
         </div>
     </section>
@@ -55,6 +74,69 @@
                     <div class="feature-icon">🆘</div>
                     <h3>Soporte 24/7</h3>
                     <p>Nuestro equipo está disponible cuando nos necesites</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN COMPARATIVA DE PLANES -->
+    <section class="comparativa">
+        <div class="container">
+            <h2>Nuestros Planes de Seguros</h2>
+            <p class="comparativa-subtitle">Elige el plan que mejor se adapta a tus necesidades</p>
+            
+            <div class="planes-grid">
+                <div class="plan-card">
+                    <div class="plan-header basico">
+                        <h3>Plan Básico</h3>
+                        <p class="plan-precio">$1,500<span>/mes</span></p>
+                    </div>
+                    <div class="plan-body">
+                        <h4>Incluye:</h4>
+                        <ul class="plan-features">
+                            <li>✅ Responsabilidad Civil</li>
+                            <li>✅ Asistencia en Ruta 24/7</li>
+                            <li>✅ Cobertura básica</li>
+                        </ul>
+                        <button class="btn btn-primary btn-block" onclick="document.getElementById('tipo_seguro').value='basico'; document.getElementById('tipo_seguro').scrollIntoView({behavior:'smooth'})">Seleccionar</button>
+                    </div>
+                </div>
+
+                <div class="plan-card plan-destacado">
+                    <div class="plan-header completo">
+                        <span class="badge-recomendado">MÁS POPULAR</span>
+                        <h3>Plan Completo</h3>
+                        <p class="plan-precio">$2,500<span>/mes</span></p>
+                    </div>
+                    <div class="plan-body">
+                        <h4>Incluye:</h4>
+                        <ul class="plan-features">
+                            <li>✅ Responsabilidad Civil</li>
+                            <li>✅ Cobertura Total del Auto</li>
+                            <li>✅ Cobertura de Cristales</li>
+                            <li>✅ Asistencia en Ruta 24/7</li>
+                            <li>✅ Remolque incluido</li>
+                        </ul>
+                        <button class="btn btn-primary btn-block" onclick="document.getElementById('tipo_seguro').value='completo'; document.getElementById('tipo_seguro').scrollIntoView({behavior:'smooth'})">Seleccionar</button>
+                    </div>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-header premium">
+                        <h3>Plan Premium</h3>
+                        <p class="plan-precio">$3,500<span>/mes</span></p>
+                    </div>
+                    <div class="plan-body">
+                        <h4>Incluye:</h4>
+                        <ul class="plan-features">
+                            <li>✅ Todas las coberturas Completo</li>
+                            <li>✅ Chofer de Reemplazo</li>
+                            <li>✅ Atención VIP 24/7</li>
+                            <li>✅ Descuento MultiVehículo</li>
+                            <li>✅ Cobertura Accidentes Personales</li>
+                        </ul>
+                        <button class="btn btn-primary btn-block" onclick="document.getElementById('tipo_seguro').value='premium'; document.getElementById('tipo_seguro').scrollIntoView({behavior:'smooth'})">Seleccionar</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -156,32 +238,4 @@
             </div>
         </div>
     </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>SeguroAutoPY</h4>
-                    <p>Tu confianza es nuestra prioridad</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <p>📞 0800-123-4567</p>
-                    <p>📧 info@seguroautopy.com</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Síguenos</h4>
-                    <p>Facebook • Instagram • LinkedIn</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 SeguroAutoPY. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts de JavaScript -->
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-</body>
-</html>
+{% endblock %}

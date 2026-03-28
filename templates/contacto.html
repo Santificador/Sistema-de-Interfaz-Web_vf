@@ -1,25 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - SeguroAutoPY</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-    <!-- NAVEGACIÓN -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">🚗 SeguroAutoPY</div>
-            <ul class="nav-links">
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/#cotizar">Cotizar</a></li>
-                <li><a href="/faq">FAQ</a></li>
-                <li><a href="/contacto" class="active">Contacto</a></li>
-            </ul>
-        </div>
-    </nav>
+{% extends "base.html" %}
 
+{% block title %}Contacto - SeguroAutoPY{% endblock %}
+
+{% block content %}
     <!-- HERO SECTION -->
     <section class="hero hero-small">
         <div class="container">
@@ -145,31 +128,9 @@
             </div>
         </div>
     </section>
+{% endblock %}
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>SeguroAutoPY</h4>
-                    <p>Tu confianza es nuestra prioridad</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <p>📞 0800-123-4567</p>
-                    <p>📧 info@seguroautopy.com</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Síguenos</h4>
-                    <p>Facebook • Instagram • LinkedIn</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 SeguroAutoPY. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
+{% block extra_scripts %}
     <script>
         // Manejar envío de formulario de contacto
         document.getElementById('contacto-formulario').addEventListener('submit', function(e) {
@@ -178,5 +139,4 @@
             this.reset();
         });
     </script>
-</body>
-</html>
+{% endblock %}

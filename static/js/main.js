@@ -1,3 +1,53 @@
+// ==================== VALIDACIÓN EN TIEMPO REAL ====================
+
+// Validar campo mientras se escribe
+document.querySelectorAll('#formulario-cotizacion input, #formulario-cotizacion select').forEach(campo => {
+    campo.addEventListener('change', function() {
+        validarCampo(this);
+    });
+    
+    campo.addEventListener('input', function() {
+        if (this.value) {
+            validarCampo(this);
+        }
+    });
+});
+
+/**
+ * Función para validar un campo individual
+ * @param {HTMLElement} campo - El campo a validar
+ */
+function validarCampo(campo) {
+    const esValido = campo.value.trim() !== '';
+    
+    if (esValido) {
+        campo.style.borderColor = '#4CAF50';
+    } else {
+        campo.style.borderColor = '#f44336';
+    }
+    
+    // Actualizar estado del botón de cotización
+    actualizarBotonCotizar();
+}
+
+/**
+ * Función para verificar si todos los campos están válidos
+ */
+function actualizarBotonCotizar() {
+    const formulario = document.getElementById('formulario-cotizacion');
+    if (!formulario) return;
+    
+    const campos = formulario.querySelectorAll('input, select');
+    const todosValidos = Array.from(campos).every(c => c.value.trim() !== '');
+    
+    const btnCotizar = formulario.querySelector('button[type="submit"]');
+    if (btnCotizar) {
+        btnCotizar.disabled = !todosValidos;
+        btnCotizar.style.opacity = todosValidos ? '1' : '0.5';
+        btnCotizar.style.cursor = todosValidos ? 'pointer' : 'not-allowed';
+    }
+}
+
 // ==================== FUNCIONALIDAD DE COTIZACIÓN ====================
 
 // Obtener el formulario
