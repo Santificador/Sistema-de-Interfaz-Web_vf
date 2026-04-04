@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Send } from 'lucide-react';
 
+const mapUrl = 'https://www.google.com/maps/place/Liberato+JF+Kennedy/@-25.3005569,-57.6074996,18.25z/data=!4m6!3m5!1s0x945da974b7791463:0xba375797993e5cee!8m2!3d-25.3035658!4d-57.6082345!16s%2Fg%2F11pr42cb_0?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D';
+
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -39,7 +41,6 @@ const ContactSection = () => {
   return (
     <section id="contacto" className="py-16 md:py-24 px-4 bg-gray-50">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
-        {/* Información de contacto */}
         <div className="space-y-8">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -51,21 +52,23 @@ const ContactSection = () => {
           </div>
 
           <div className="space-y-6">
-            {/* Dirección */}
             <div className="flex gap-4">
               <div className="bg-blue-100 w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0">
                 <MapPin className="text-blue-600" size={24} />
               </div>
               <div>
                 <h3 className="font-bold text-gray-900 mb-1">Ubicación</h3>
-                <p className="text-gray-600">
-                  O'higgins 979 casi<br />
-                  Asunción, Paraguay
-                </p>
+                <a
+                  href={mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:text-blue-600 transition"
+                >
+                  J.F.Kennedy 630
+                </a>
               </div>
             </div>
 
-            {/* Teléfono */}
             <div className="flex gap-4">
               <div className="bg-green-100 w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Phone className="text-green-600" size={24} />
@@ -73,15 +76,14 @@ const ContactSection = () => {
               <div>
                 <h3 className="font-bold text-gray-900 mb-1">Teléfono</h3>
                 <p className="text-gray-600">
-                  <a href="tel:+595983514376" className="hover:text-green-600 transition">
-                    +595 983 514376
+                  <a href="tel:0985335598" className="hover:text-green-600 transition">
+                    0985335598
                   </a>
                 </p>
                 <p className="text-sm text-gray-500">Lunes a Viernes, 8:00 AM - 6:00 PM</p>
               </div>
             </div>
 
-            {/* Email */}
             <div className="flex gap-4">
               <div className="bg-purple-100 w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Mail className="text-purple-600" size={24} />
@@ -89,21 +91,26 @@ const ContactSection = () => {
               <div>
                 <h3 className="font-bold text-gray-900 mb-1">Email</h3>
                 <p className="text-gray-600">
-                  <a href="mailto:info@quieromiseguro.com.py" className="hover:text-purple-600 transition">
-                    info@quieromiseguro.com.py
+                  <a href="mailto:edulezcano@gmail.com" className="hover:text-purple-600 transition">
+                    edulezcano@gmail.com
                   </a>
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Mapa simulado */}
-          <div className="bg-gray-300 rounded-xl h-64 flex items-center justify-center text-gray-600">
-            📍 Asunción, Paraguay
-          </div>
+          <a
+            href={mapUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gray-300 rounded-xl h-64 flex flex-col items-center justify-center text-gray-600 hover:bg-gray-200 transition"
+          >
+            <span className="text-4xl mb-3">📍</span>
+            <span className="font-semibold text-gray-800">J.F.Kennedy 630</span>
+            <span className="text-sm">Abrir ubicación en Google Maps</span>
+          </a>
         </div>
 
-        {/* Formulario */}
         <div className="bg-white rounded-2xl p-8 shadow-lg">
           {submitted ? (
             <div className="h-full flex items-center justify-center text-center space-y-4">
@@ -141,7 +148,7 @@ const ContactSection = () => {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-                  placeholder="+595 900 000000"
+                  placeholder="0985335598"
                 />
               </div>
 
@@ -155,7 +162,7 @@ const ContactSection = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-                  placeholder="tu@email.com"
+                  placeholder="edulezcano@gmail.com"
                 />
               </div>
 

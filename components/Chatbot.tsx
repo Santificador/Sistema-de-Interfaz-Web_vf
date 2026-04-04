@@ -1,57 +1,83 @@
 import React, { useState } from 'react';
 import { X, MessageCircle, Send } from 'lucide-react';
 
-const Chatbot = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([
-    {
-      type: 'bot',
-      text: 'Hola 👋 ¿En qué tipo de seguro estás interesado?',
-      timestamp: new Date()
-    }
-  ]);
-  const [inputValue, setInputValue] = useState('');
+const initialMessages = [
+  {
+    type: 'bot',
+    text: 'Hola. Elegí una pregunta frecuente para ver la respuesta.',
+    timestamp: new Date()
+  }
+];
 
-  const insuranceOptions = [
-    { label: 'Seguro de auto', value: 'auto' },
-    { label: 'Seguro de vida', value: 'vida' },
-    { label: 'Seguro de hogar', value: 'hogar' },
-    { label: 'Otro seguro', value: 'otro' }
+const Chatbot = () => {
+  const faqOptions = [
+    {
+      id: '1',
+      question: '¿Cuánto cuesta un seguro de auto?',
+      answer: 'Desde Gs. 120.000 hasta Gs. 450.000 por mes. El valor varía según la marca, el año y la aseguradora.'
+    },
+    {
+      id: '2',
+      question: '¿Qué aseguradora es mejor?',
+      answer: 'La plataforma te muestra la opción más conveniente según tu vehículo.'
+    },
+    {
+      id: '3',
+      question: '¿Puedo asegurar un auto usado?',
+      answer: 'Sí, incluso autos de más de 20 años.'
+    },
+    {
+      id: '4',
+      question: '¿El precio es igual que directo a la compañía?',
+      answer: 'Sí. Por ley, el precio del seguro es el mismo compres donde compres.'
+    },
+    {
+      id: '5',
+      question: '¿Cuánto tarda la emisión?',
+      answer: 'Entre 15 y 30 minutos.'
+    },
+    {
+      id: '6',
+      question: '¿Qué necesito para contratar?',
+      answer: 'Necesitas cédula, registro del vehículo y en algunos casos una foto.'
+    }
   ];
 
-  const responses = {
-    auto: 'Excelente. Para seguros de auto, comparamos múltiples opciones con cobertura integral. ¿Espera información de tu vehículo?',
-    vida: 'Perfecto. Los seguros de vida son esenciales para proteger a tu familia. ¿Cuándo te gustaría contratarlo?',
-    hogar: 'Genial. Protegemos tu hogar y todos tus bienes. ¿Cuándo podemos contactarte para una consulta?',
-    otro: 'Entendido. También ofrecemos seguros para mascotas, viajes y más. ¿Cuál es tu necesidad específica?',
-    contact: '¡Perfecto! Te conectamos con nuestro equipo. Escribe tu teléfono para que nos comuniquemos.'
+  const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState(initialMessages);
+  const [inputValue, setInputValue] = useState('');
+
+  const resetChat = () => {
+    setMessages([
+      {
+        type: 'bot',
+        text: 'Hola. Elegí una pregunta frecuente para ver la respuesta.',
+        timestamp: new Date()
+      }
+    ]);
+    setInputValue('');
   };
 
   const handleSendMessage = (text = inputValue) => {
     if (!text.trim()) return;
 
-    // Add user message
+    const normalizedText = text.trim().toLowerCase();
+    const selectedFaq = faqOptions.find(
+      (option) => option.id === normalizedText || option.question.toLowerCase() === normalizedText
+    );
+
     const userMessage = {
       type: 'user',
-      text: text,
+      text: selectedFaq ? `${selectedFaq.id}. ${selectedFaq.question}` : text,
       timestamp: new Date()
     };
     setMessages(prev => [...prev, userMessage]);
     setInputValue('');
 
-    // Simulate bot response
     setTimeout(() => {
-      let botResponse = 'Gracias por tu interés. Por favor contáctanos para más información.';
-      
-      if (text.toLowerCase().includes('auto')) {
-        botResponse = responses.auto;
-      } else if (text.toLowerCase().includes('vida')) {
-        botResponse = responses.vida;
-      } else if (text.toLowerCase().includes('hogar')) {
-        botResponse = responses.hogar;
-      } else if (text.toLowerCase().includes('contacto') || text.toLowerCase().includes('teléfono')) {
-        botResponse = '¡Perfecto! Nuestro equipo se comunicará contigo. También puedes escribir +595 983 514376 por WhatsApp.';
-      }
+      const botResponse = selectedFaq
+        ? selectedFaq.answer
+        : 'Elegí una de las preguntas frecuentes para ver la respuesta. Si prefieres, también puedes escribir al 0985335598 por WhatsApp.';
 
       const bot = {
         type: 'bot',
@@ -59,11 +85,17 @@ const Chatbot = () => {
         timestamp: new Date()
       };
       setMessages(prev => [...prev, bot]);
+
+      if (selectedFaq) {
+        setTimeout(() => {
+          resetChat();
+        }, 2500);
+      }
     }, 500);
   };
 
   const handleOptionClick = (option) => {
-    handleSendMessage(option.label);
+    handleSendMessage(option.id);
   };
 
   return (
@@ -85,11 +117,14 @@ const Chatbot = () => {
           {/* Header */}
           <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-4 rounded-t-2xl flex items-center justify-between">
             <div>
-              <h3 className="font-bold text-lg">Quiero Mi Seguro</h3>
+              <h3 className="font-bold text-lg">AseguraPy</h3>
               <p className="text-xs text-blue-100">Asistente en línea</p>
             </div>
             <button
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                resetChat();
+                setIsOpen(false);
+              }}
               className="hover:bg-blue-700 p-2 rounded transition"
             >
               <X size={20} />
@@ -119,15 +154,15 @@ const Chatbot = () => {
           {/* Quick Options */}
           {messages.length === 1 && (
             <div className="px-4 py-3 border-t border-gray-200 space-y-2">
-              <p className="text-xs text-gray-600 font-semibold">Elige una opción:</p>
-              <div className="grid grid-cols-2 gap-2">
-                {insuranceOptions.map((option) => (
+              <p className="text-xs text-gray-600 font-semibold">Preguntas frecuentes:</p>
+              <div className="grid grid-cols-1 gap-2">
+                {faqOptions.map((option) => (
                   <button
-                    key={option.value}
+                    key={option.id}
                     onClick={() => handleOptionClick(option)}
                     className="bg-blue-50 hover:bg-blue-100 text-blue-600 text-xs font-semibold py-2 px-3 rounded transition"
                   >
-                    {option.label}
+                    {option.id}. {option.question}
                   </button>
                 ))}
               </div>
@@ -142,7 +177,7 @@ const Chatbot = () => {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-                placeholder="Escribe un mensaje..."
+                placeholder="Escribe el número de una pregunta..."
                 className="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
               />
               <button

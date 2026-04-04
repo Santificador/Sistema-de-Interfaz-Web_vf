@@ -1,8 +1,8 @@
 import React from 'react';
 
 const WhatsAppButton = () => {
-  const phoneNumber = '595983514376';
-  const message = encodeURIComponent('Hola, vengo desde quieromiseguro.com.py y quiero consultar sobre seguros.');
+  const phoneNumber = '595985335598';
+  const message = encodeURIComponent('Hola, quiero consultar sobre seguros en AseguraPy.');
 
   return (
     <a

@@ -20,7 +20,7 @@ const TestimonialsSection = () => {
     {
       name: 'Jorge Sánchez',
       role: 'Emprendedor',
-      text: 'Servicio práctico y rápido. Ahora recomiendo a Quiero Mi Seguro a todos mis amigos.',
+      text: 'Servicio práctico y rápido. Ahora recomiendo a AseguraPy a todos mis amigos.',
       rating: 5,
       image: '👨‍🔧'
     }

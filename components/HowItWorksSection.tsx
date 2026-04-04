@@ -1,7 +1,10 @@
-import React from 'react';
 import { PhoneCall, BarChart3, Lightbulb, CheckCircle } from 'lucide-react';
 
-const HowItWorksSection = () => {
+type HowItWorksSectionProps = {
+  onOpenQuote: () => void;
+};
+
+const HowItWorksSection = ({ onOpenQuote }: HowItWorksSectionProps) => {
   const steps = [
     {
       number: 1,
@@ -73,7 +76,7 @@ const HowItWorksSection = () => {
           <p className="mb-6 text-blue-100">
             Contáctanos hoy y obtén una cotización sin compromiso
           </p>
-          <button className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-semibold transition transform hover:scale-105">
+          <button onClick={onOpenQuote} className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-semibold transition transform hover:scale-105">
             Comenzar ahora
           </button>
         </div>

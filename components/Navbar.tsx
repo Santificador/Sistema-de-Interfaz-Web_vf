@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
-const Navbar = () => {
+type NavbarProps = {
+  onOpenQuote: () => void;
+};
+
+const Navbar = ({ onOpenQuote }: NavbarProps) => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
@@ -9,11 +13,10 @@ const Navbar = () => {
       <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">QMS</span>
+            <span className="text-white font-bold text-lg">AP</span>
           </div>
           <div className="flex flex-col">
-            <span className="font-bold text-gray-900">Quiero Mi Seguro</span>
-            <span className="text-xs text-gray-500">Eheja Na Che Cargope</span>
+            <span className="font-bold text-gray-900">AseguraPy</span>
           </div>
         </div>
 
@@ -23,9 +26,9 @@ const Navbar = () => {
           <a href="#porque" className="text-gray-700 hover:text-blue-600 transition">¿Por qué elegir?</a>
           <a href="#testimonios" className="text-gray-700 hover:text-blue-600 transition">Testimonios</a>
           <a href="#como" className="text-gray-700 hover:text-blue-600 transition">Cómo funciona</a>
-          <a href="#contacto" className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+          <button onClick={onOpenQuote} className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
             Cotizar
-          </a>
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -44,9 +47,9 @@ const Navbar = () => {
           <a href="#porque" className="block text-gray-700 hover:text-blue-600">¿Por qué elegir?</a>
           <a href="#testimonios" className="block text-gray-700 hover:text-blue-600">Testimonios</a>
           <a href="#como" className="block text-gray-700 hover:text-blue-600">Cómo funciona</a>
-          <a href="#contacto" className="block bg-blue-600 text-white px-4 py-2 rounded text-center hover:bg-blue-700">
+          <button onClick={() => { setMobileOpen(false); onOpenQuote(); }} className="block w-full bg-blue-600 text-white px-4 py-2 rounded text-center hover:bg-blue-700">
             Cotizar
-          </a>
+          </button>
         </div>
       )}
     </nav>

@@ -1,7 +1,10 @@
-import React from 'react';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 
-const HeroSection = () => {
+type HeroSectionProps = {
+  onOpenQuote: () => void;
+};
+
+const HeroSection = ({ onOpenQuote }: HeroSectionProps) => {
   return (
     <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16 md:py-24 px-4">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
@@ -14,7 +17,7 @@ const HeroSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition transform hover:scale-105">
+            <button onClick={onOpenQuote} className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition transform hover:scale-105">
               <span>Cotizar ahora</span>
               <ArrowRight size={20} />
             </button>
