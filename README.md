@@ -1,4 +1,4 @@
-# 🚀 Quiero Mi Seguro - Landing Page
+# 🚀 AseguraPy - Landing Page
 
 Página web moderna, atractiva y funcional para la agencia de seguros "Quiero Mi Seguro" (Eheja Na Che Cargope).
 
