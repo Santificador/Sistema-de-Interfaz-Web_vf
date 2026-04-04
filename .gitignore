@@ -1,0 +1,46 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment variables (IMPORTANTE - NUNCA SUBIR)
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+.tsbuildinfo
+
+# MongoDB
+.mongodb_data/
+
+# IDE
+.history/
+.vscode_settings.json
+
+# OS
+Thumbs.db
+
+# Testing
+coverage/
+.nyc_output/

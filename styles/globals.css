@@ -1,0 +1,81 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Animaciones personalizadas */
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition transform hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-100 text-blue-600 px-6 py-3 rounded-lg font-semibold transition;
+  }
+
+  .btn-success {
+    @apply bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition transform hover:scale-105;
+  }
+
+  .card-hover {
+    @apply transition duration-300 hover:shadow-xl hover:scale-105;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 px-4;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent;
+  }
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Personalización de scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2563eb;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1e40af;
+}
+
+/* Animaciones de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Placeholder style */
+::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
